@@ -1,0 +1,45 @@
+@mixin style-icon($size) {
+  i {
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 7px;
+    cursor: pointer;
+    font-size: $size;
+    transition: all 0.25s linear;
+    &:hover {
+      background-color: $hover-icon;
+    }
+  }
+}
+
+// Khai báo kích thước tương ứng với màn hình thiết bị
+
+$XS: 480px;
+$SM: 768px;
+$MD: 1024px;
+$XL: 1200px;
+
+// media queries
+
+@mixin Responsive($canvas) {
+  @if $canvas == XS {
+    @media only screen and (max-width: $XS) {
+      @content;
+    }
+  } @else if $canvas == SM {
+    @media only screen and (max-width: $SM) and (min-width: ($XS+1)) {
+      @content;
+    }
+  } @else if $canvas == MD {
+    @media only screen and (max-width: $MD) and (min-width: ($SM+1)) {
+      @content;
+    }
+  } @else if $canvas == XL {
+    @media only screen and (max-width: $XL) and (min-width: ($MD+1)) {
+      @content;
+    }
+  }
+}

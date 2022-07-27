@@ -1,0 +1,19 @@
+@import '../sass/variable';
+@import '../sass/mixins';
+
+$width-content: 300px;
+
+.wrapper {
+  position: relative;
+}
+.container {
+  position: fixed;
+  left: $width-sideBar;
+  top: 0;
+  bottom: $height-bottomNav;
+  right: 0;
+  z-index: 1;
+  @include Responsive(MD) {
+    left: $width-sideBar-tl;
+  }
+}
