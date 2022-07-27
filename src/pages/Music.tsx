@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLishSongs, getMusic } from '../redux/reducers/musicSlide';
 import { RootState, AppDispatch } from '../redux/store';
-import Modal from '../components/Modal';
+
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { app } from '../firebase';
 
@@ -125,7 +125,6 @@ const Music = () => {
           ))}
         </div>
       </div>
-      <Modal />
     </>
   );
 };
