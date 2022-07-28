@@ -58,6 +58,37 @@
     justify-content: center;
     width: 100%;
     margin-bottom: 7px;
+    .icon {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      width: 21px;
+      height: 40px;
+      align-items: center;
+      cursor: pointer;
+
+      &:hover span {
+        opacity: 0.8;
+      }
+      span {
+        width: 3px;
+        height: 26px;
+        background-color: $hover-play;
+        border-radius: 3px;
+        animation: bounce 2.2s ease-in-out infinite alternate;
+        content: '';
+        &:nth-of-type(2) {
+          animation-delay: -2.2s; /* Start at the end of animation */
+        }
+
+        &:nth-of-type(3) {
+          animation-delay: -3.7s; /* Start mid-way of return of animation */
+        }
+        &:nth-of-type(4) {
+          animation-delay: -4.2s; /* Start mid-way of return of animation */
+        }
+      }
+    }
     @include style-icon(24px);
     i:nth-child(3) {
       font-size: 40px;

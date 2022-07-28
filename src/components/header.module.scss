@@ -79,3 +79,20 @@
     cursor: pointer;
   }
 }
+.tooltip {
+  color: $white;
+  background-color: $hover-icon;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    border: 4px solid;
+    border-color: transparent transparent $hover-icon transparent;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

@@ -182,11 +182,16 @@ const BottomNavigation = () => {
         </div>
       </div>
       <div className={cx('play')}>
-        <div className={cx('play-feature')}>
+        <div className={cx('play-feature', play && 'activePlay')}>
           <i className='bx bxl-tailwind-css'></i>
           <i className='bx bx-skip-previous' onClick={handlePrevSong}></i>
           {play ? (
-            <i className='bx bx-equalizer' onClick={handlePauseAudio}></i>
+            <div className={cx('icon')} onClick={handlePauseAudio}>
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
           ) : (
             <i className='bx bx-play-circle' onClick={handlePlayAudio}></i>
           )}

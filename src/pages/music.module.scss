@@ -63,6 +63,13 @@
     height: 300px;
 
     border-radius: 5px;
+    &.circle {
+      border-radius: 50%;
+      img {
+        border-radius: 50%;
+        animation: lds-dual-ring 10s linear infinite;
+      }
+    }
     img {
       width: 100%;
       height: 100%;
@@ -144,6 +151,15 @@
     }
   }
   .list-media {
+    &.active {
+      .list-left {
+        .img {
+          .icon {
+            visibility: visible;
+          }
+        }
+      }
+    }
     display: flex;
     align-items: center;
     justify-content: center;
@@ -156,7 +172,14 @@
     white-space: nowrap;
     &:hover {
       background-color: $hover-music;
+
+      .list-center {
+        i {
+          display: block;
+        }
+      }
     }
+
     .list-left {
       flex: 0.45;
       display: flex;
@@ -169,8 +192,38 @@
         width: 40px;
         height: 40px;
         border-radius: 5px;
-
+        position: relative;
         margin-right: 10px;
+        .icon {
+          position: absolute;
+          display: flex;
+          justify-content: space-between;
+          width: 20px;
+          height: 20px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          align-items: center;
+          visibility: hidden;
+          span {
+            width: 3px;
+            height: 20px;
+            background-color: $hover-play;
+            border-radius: 3px;
+            animation: bounce 2.2s ease infinite alternate;
+            content: '';
+            &:nth-of-type(2) {
+              animation-delay: -2.2s; /* Start at the end of animation */
+            }
+
+            &:nth-of-type(3) {
+              animation-delay: -3.7s; /* Start mid-way of return of animation */
+            }
+            &:nth-of-type(4) {
+              animation-delay: -4.2s; /* Start mid-way of return of animation */
+            }
+          }
+        }
         img {
           width: 100%;
           height: 100%;
@@ -193,6 +246,16 @@
     .list-center {
       flex: 0.45;
       font-size: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      i {
+        font-size: 1rem;
+        display: none;
+        &:hover {
+          color: $white;
+        }
+      }
     }
     .list-right {
       flex: 0.1;
@@ -209,5 +272,29 @@
   }
   .active {
     background-color: $hover-music;
+  }
+  .active {
+    .list-center {
+      i {
+        display: block;
+      }
+    }
+  }
+}
+.tooltip {
+  color: $white;
+  background-color: $hover-icon;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    border: 4px solid;
+    border-color: $hover-icon transparent transparent transparent;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

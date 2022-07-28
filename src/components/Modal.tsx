@@ -12,8 +12,8 @@ import {
   onCloseProgressBar,
   onShowProgressBar,
 } from '../redux/reducers/modalSlide';
-import { collection, addDoc } from 'firebase/firestore';
-import { getFirestore } from 'firebase/firestore';
+import { collection, addDoc, getFirestore } from 'firebase/firestore';
+
 import { getLishSongs } from '../redux/reducers/musicSlide';
 
 const db = getFirestore(app);
@@ -43,6 +43,7 @@ const Modal = () => {
       setAudio(e.target.files[0]);
     }
   };
+
   useEffect(() => {
     if (imgRef.current && image) {
       imgRef.current.src = URL.createObjectURL(image);

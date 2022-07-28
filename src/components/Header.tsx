@@ -4,6 +4,7 @@ import classNames from 'classnames/bind';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 import { onClose, onShow } from '../redux/reducers/modalSlide';
+import Tippy from '@tippyjs/react';
 
 const cx = classNames.bind(styles);
 
@@ -36,7 +37,9 @@ const Header = () => {
       <div className={cx('header-right')}>
         <i className='bx bxs-t-shirt'></i>
         <i className='bx bx-diamond'></i>
-        <i className='bx bx-download' onClick={handleShowModal}></i>
+        <Tippy content={<span className={cx('tooltip')}>tải lên</span>}>
+          <i className='bx bx-upload' onClick={handleShowModal}></i>
+        </Tippy>
         <i className='bx bx-reset'></i>
         <div className={cx('avatar')}>TD</div>
       </div>
